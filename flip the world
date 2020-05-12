@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+#define fori0(i,n) for(int i=0;i<n;i++)
+#define in(n) int n;cin>>n;
+using namespace std;
+void tog(bool* a,int c){
+for(int j=c;j>=0;j--)
+a[j]=!a[j];
+}
+int main()
+{
+in(t);
+while(t--){
+in(n);in(m);
+bool a[n][m];
+char c;
+fori0(i,n){
+fori0(j,m){
+cin>>c;
+a[i][j]=c-'0';
+}
+}
+int ans=0;
+for(int i=n-1;i>=0;i--){
+for(int j=m-1;j>=0;j--){
+if(!a[i][j])
+{
+for(int k=i;k>=0;k--)
+tog(a[k],j);
+ans++;
+}
+}
+}
+cout<<ans<<endl;
+}
+}
+
+
+https://www.hackerearth.com/practice/algorithms/greedy/basics-of-greedy-algorithms/practice-problems/algorithm/flip-the-world/
